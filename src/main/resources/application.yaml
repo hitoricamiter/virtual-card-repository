@@ -15,7 +15,7 @@ spring:
           destination: json-topic
           content-type: application/json
 
-        myConsumer-in-0:
+        consumeApplicationEvent-in-0:
           destination: json-topic
           group: my-group
           content-type: application/json

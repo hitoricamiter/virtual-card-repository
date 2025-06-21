@@ -14,18 +14,9 @@ import ru.zaikin.service.KafkaProducerService;
 public class TestController {
 
     private final KafkaProducerService kafkaProducerService;
-    private final EventClient eventClient;
 
-    public TestController(KafkaProducerService kafkaProducerService, EventClient eventClient) {
+    public TestController(KafkaProducerService kafkaProducerService) {
         this.kafkaProducerService = kafkaProducerService;
-        this.eventClient = eventClient;
-    }
-
-    @PostMapping("/send")
-    public ResponseEntity<String> sendObject(@RequestBody MyEvent event) {
-        kafkaProducerService.sendObject(event);
-
-        return ResponseEntity.ok("ok");
     }
 
 
