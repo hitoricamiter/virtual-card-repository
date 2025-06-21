@@ -1,0 +1,30 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/postgres
+    username: postgres
+    password: postgres
+    driver-class-name: org.postgresql.Driver
+
+  cloud:
+    function:
+      definition: myConsumer
+
+    stream:
+      bindings:
+        myProducer-out-0:
+          destination: json-topic
+          content-type: application/json
+
+        myConsumer-in-0:
+          destination: json-topic
+          group: my-group
+          content-type: application/json
+
+camunda:
+  bpm:
+    admin-user:
+      id: demo
+      password: demo
+
+server:
+  port: 8085
